@@ -95,9 +95,9 @@ S3Adapter.prototype.createFile = function(filename, data, contentType) {
   if (this._directAccess) {
     params.ACL = "public-read"
   }
-  if (contentType) {
-    params.ContentType = contentType;
-  }
+  // if (contentType) {
+  //   params.ContentType = contentType;
+  // }
   return this.createBucket().then(() => {
     return new Promise((resolve, reject) => {
       this._s3Client.upload(params, (err, data) => {
